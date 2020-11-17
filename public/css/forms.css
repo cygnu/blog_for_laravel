@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/* (create.blade.php) */
+html {
+    --form_solid: rgb(180, 180, 180);
+    --form_blue: rgb(0, 95, 204);
+    font-size: 16px;
+}
+
+.form_items {
+    text-align: center;
+}
+
+.form_items_inputTitle,
+.form_items_inputContent,
+.form_items_submitBtn {
+    margin: 0 10px;
+}
+
+.form_items_inputTitle p,
+.form_items_inputContent p {
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+}
+
+.form_error_title,
+.form_error_content {
+    font-size: .8em;
+    color: rgb(177, 96, 170);
+    text-align: left;
+}
+
+.form_item_inputTitle,
+.form_item_inputContent,
+.form_item_submitBtn {
+    background-color: var(--BACKGROUND);
+    border: 2px solid var(--form_solid);
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+}
+
+.form_item_inputContent {
+    height: 300px;
+}
+
+.form_item_submitBtn {
+    background-color: var(--form_blue);
+    border: 2px solid var(--BACKGROUND);
+    border-radius: 5px;
+    color: var(--FONT);
+}
+
+/* タブレット, PC表示(768px~) */
+@media (min-width: 768px) {
+    form {
+        margin: 0 auto;
+        width: 748px;
+    }
+
+    .form_items_inputTitle,
+    .form_items_inputContent,
+    .form_items_submitBtn {
+        margin: 0 auto;
+    }
+
+    .form_item_inputTitle,
+    .form_item_inputContent,
+    .form_item_submitBtn {
+        margin: 0 auto;
+        width: 748px;
+    }
+}
