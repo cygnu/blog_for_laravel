@@ -18,7 +18,13 @@
                         <th><a href>タイトル</a></th>
                         <th></th>
                     </tr>
-                    
+                    @foreach ($posts as $post)
+                    <tr>
+                        <td>{{ $post->id }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td></td>
+                    </tr>
+                    @endforeach
                 </div>
             </div>
         </div>
