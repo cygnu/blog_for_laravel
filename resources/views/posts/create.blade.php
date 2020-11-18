@@ -5,7 +5,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/forms.css">
 </head>
@@ -15,23 +14,27 @@
         <div class="form_items">
             <div class="form_items_inputTitle">
                 <p>タイトル</p>
-                @if ($errors->has('body'))
-                    <span class="form_error_title">{{ $errors->first('body') }}</span>
-                @endif
                 <input class="form_item_inputTitle"
                        type="title"
                        name="title"
                        value="{{ old('title') }}"
                 >
+                @if ($errors->has('title'))
+                    <div class="form_error_title">
+                        <span>{{ $errors->first('title') }}</span>
+                    </div>
+                @endif
             </div>
             <div class="form_items_inputContent">
                 <p>本文</p>
-                @if ($errors->has('body'))
-                    <span class="form_error_content">{{ $errors->first('body') }}</span>
-                @endif
                 <textarea class="form_item_inputContent"
-                          name="content"
+                          name="body"
                 >{{ old('body') }}</textarea>
+                @if ($errors->has('body'))
+                    <div class="form_error_content">
+                        <span>{{ $errors->first('body') }}</span>
+                    </div>
+                @endif
             </div>
             <div class="form_items_submitBtn">
                 <input class="form_item_submitBtn"

@@ -9,41 +9,44 @@
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
-    <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
+    <form method="POST" action="{{ route('user.post.store') }}" onSubmit="return checkSubmit()">
         {{ csrf_field() }}
-        <input type="hidden" name="id" value="{{ $post->id }}">
         <div class="form_items">
             <div class="form_items_inputTitle">
                 <p>タイトル</p>
-                @if ($errors->has('title'))
-                    <span class="form_error_title">{{ $errors->first('title') }}</span>
-                @endif
                 <input class="form_item_inputTitle"
                        type="title"
                        name="title"
-                       value="{{ $post->title }}"
+                       value="{{ old('title') }}"
                 >
+                @if ($errors->has('title'))
+                    <div class="form_error_title">
+                        <span>{{ $errors->first('title') }}</span>
+                    </div>
+                @endif
             </div>
             <div class="form_items_inputContent">
                 <p>本文</p>
-                @if ($errors->has('body'))
-                    <span class="form_error_content">{{ $errors->first('body') }}</span>
-                @endif
                 <textarea class="form_item_inputContent"
-                          name="content"
-                >{{ $post->body }}</textarea>
+                          name="body"
+                >{{ old('body') }}</textarea>
+                @if ($errors->has('body'))
+                    <div class="form_error_content">
+                        <span>{{ $errors->first('body') }}</span>
+                    </div>
+                @endif
             </div>
             <div class="form_items_submitBtn">
                 <input class="form_item_submitBtn"
                        type="submit"
-                       value="更 新"
+                       value="投 稿"
                 >
             </div>
         </div>
     </form>
     <script>
     function checkSubmit(){
-    if(window.confirm('更新してよろしいですか？')){
+    if(window.confirm('投稿してよろしいですか？')){
         return true;
     } else {
         return false;
@@ -52,4 +55,3 @@
     </script>
 </body>
 </html>
- 

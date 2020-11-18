@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Admin extends Model
 {
     use Notifiable;
 
@@ -36,10 +36,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    // リレーションの設定。投稿者は複数の投稿を持つ
-    public function posts()
-    {
-        return $this->hasMany('App\Models\Post'); 
-    }
 }

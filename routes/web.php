@@ -16,23 +16,24 @@
  */
 Route::get('/', 'PostsController@index')->name('posts');
 
-// 記事投稿画面
-Route::get('/posts/create', 'PostsController@create')->name('create');
-// 記事登録処理
-Route::post('/posts/store', 'PostsController@store')->name('store');
-// 各記事編集画面
-Route::get('/posts/edit/{id}', 'PostsController@edit')->name('edit');
-// 記事編集処理
-Route::post('/posts/update', 'PostsController@update')->name('update');
-// 記事削除処理
-Route::post('/posts/delete/{id}', 'PostsController@delete')->name('delete');
+Route::get('user/login', 'User\Auth\LoginController@showUserLoginForm');
 
-Auth::routes();
-
-// Route::get('/home', 'PostsController@postsHome')->name('posts.home');
-Route::get('/home', 'HomeController@index')->name('home');
+// 一般ユーザー
+Route::middleware('auth:user')->namespace('User')->prefix('user')->group(function() {
+    Route::get('home', 'HomeController@index')->name('user.home.index');
+    // 記事投稿画面
+    Route::get('posts/create', 'PostController@create')->name('user.post.create');
+    // 記事登録処理
+    Route::post('posts/store', 'PostController@store')->name('user.post.store');
+    // 各記事編集画面
+    Route::get('posts/edit/{id}', 'PostController@edit')->name('user.post.edit');
+    // 記事編集処理
+    Route::post('posts/update', 'PostController@update')->name('user.post.update');
+    // 記事削除処理
+    Route::post('posts/delete/{id}', 'PostController@delete')->name('user.post.delete');
+});
 
 /**
  * 未ログイン各記事画面
  */
-Route::get('/posts/{id}', 'PostsController@show')->name('show');
+Route::get('posts/{id}', 'PostsController@show')->name('show');

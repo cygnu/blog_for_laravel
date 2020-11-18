@@ -24,13 +24,6 @@ html {
     text-align: left;
 }
 
-.form_error_title,
-.form_error_content {
-    font-size: .8em;
-    color: rgb(177, 96, 170);
-    text-align: left;
-}
-
 .form_item_inputTitle,
 .form_item_inputContent,
 .form_item_submitBtn {
@@ -40,6 +33,13 @@ html {
     box-sizing: border-box;
     padding: 5px;
     width: 100%;
+}
+
+.form_error_title,
+.form_error_content {
+    font-size: .8em;
+    color: rgb(177, 96, 170);
+    text-align: left;
 }
 
 .form_item_inputContent {

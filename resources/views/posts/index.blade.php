@@ -18,16 +18,19 @@
                         <span>{{ $post->title }}</span>
                     </a>
                 </h1>
-                <p class="main_article_datetime">{{ $post->updated_at->format('Y/m/d H:m') }}</p>
+                <div>
+                    <span>{{ $post->updated_at->format('Y/m/d H:m') }}</span>
+                    <span>&nbsp;{{ $post->name }}</span>
+                </div>
                 <!-- <p class="main_article_content"><span>{{ $post->body }}</span></p> -->
             </li>
             @empty
                 <h1 class="main_article_title">まだ記事がありません</h1>
             @endforelse
         </ul>
-        <div class="main_articles_paginate">
+        <div class="bootstrap">
             <div class="main_articles_pagination">
-                {{ $posts->appends(request()->query())->links() }}
+                {{ $posts->appends(request()->query())->links('vendor/pagination/pagination-view') }}
             </div>
         </div>
     </article>

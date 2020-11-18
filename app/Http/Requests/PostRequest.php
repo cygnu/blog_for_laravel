@@ -26,7 +26,6 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required | max:100',
             'body' => 'required'
-            
         ];
     }
 }

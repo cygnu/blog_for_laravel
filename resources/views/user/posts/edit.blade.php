@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
-    <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
+    <form method="POST" action="{{ route('user.post.update') }}" onSubmit="return checkSubmit()">
         {{ csrf_field() }}
         <input type="hidden" name="id" value="{{ $post->id }}">
         <div class="form_items">
