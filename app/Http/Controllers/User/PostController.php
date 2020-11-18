@@ -4,23 +4,16 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 
 class PostController extends Controller
 {
     /**
-     * 各記事画面
-     */
-    public function show($id) {
-        $post = Post::findOrFail($id);
-        return view('user.post.show', ['post' => $post]);
-    }
-
-    /**
      * 記事投稿画面
      */
     public function create() {
-        return view('user.post.create');
+        return view('user.posts.create');
     }
 
     /**
@@ -39,8 +32,8 @@ class PostController extends Controller
             abort(500);
         }
         
-        \Sesstion::flash('err_msg', '記事を投稿しました');
-        return redirect(route('user.home'));
+        \Session::flash('err_msg', '記事を投稿しました');
+        return redirect(route('user.home.index'));
     }
 
     /**
@@ -48,7 +41,7 @@ class PostController extends Controller
      */
     public function edit($id) {
         $post = Post::findOrFail($id);
-        return view('user.post.edit', ['post' => $post]);
+        return view('user.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -72,8 +65,8 @@ class PostController extends Controller
             abort(500);
         }
 
-        \Sesstion::flash('err_msg', '記事を更新しました');
-        return redirect(route('user.home'));
+        \Session::flash('err_msg', '記事を更新しました');
+        return redirect(route('user.home.index'));
     }
 
     /**
@@ -82,7 +75,7 @@ class PostController extends Controller
     public function delete($id) {
         if (empty($id)) {
             \Session::flash('err_msg', 'データがありません');
-            return redirect(route('user.home'));
+            return redirect(route('user.home.index'));
         }
 
         try {
@@ -93,6 +86,6 @@ class PostController extends Controller
         }
         
         \Session::flash('err_msg', '削除しました');
-        return redirect(route('user.home'));
+        return redirect(route('user.home.index'));
     }
 }

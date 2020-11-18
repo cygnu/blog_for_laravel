@@ -16,9 +16,15 @@
  */
 Route::get('/', 'PostsController@index')->name('posts');
 
-Route::get('user/login', 'User\Auth\LoginController@showUserLoginForm');
+// Userログイン処理
+Route::namespace('User\Auth')->prefix('user')->group(function() {
+    Route::get('login', 'LoginController@showLoginForm')->name('user.login');
+    Route::post('login', 'LoginController@login');
+});
 
-// 一般ユーザー
+/**
+ * 一般ユーザー
+ */
 Route::middleware('auth:user')->namespace('User')->prefix('user')->group(function() {
     Route::get('home', 'HomeController@index')->name('user.home.index');
     // 記事投稿画面
@@ -31,6 +37,8 @@ Route::middleware('auth:user')->namespace('User')->prefix('user')->group(functio
     Route::post('posts/update', 'PostController@update')->name('user.post.update');
     // 記事削除処理
     Route::post('posts/delete/{id}', 'PostController@delete')->name('user.post.delete');
+    // ログアウト処理
+    Route::post('logout', 'Auth\LoginController@logout')->name('user.logout');
 });
 
 /**

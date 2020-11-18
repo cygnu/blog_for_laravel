@@ -7,7 +7,7 @@
             <div class="card">
                 @if (session('err_msg'))
                     <p class="card-header text-danger">
-                        {{ session('err_msg' )}}
+                        {{ session('err_msg') }}
                     </p>
                 @else
                     <div class="card-header">Dashboard</div>
