@@ -22,11 +22,6 @@ body {
     padding: 0;
 }
 
-.container {
-    margin: 0;
-    padding: 0;
-}
-
 .header {
     background-color: var(--MAIN_RGBA);
     color: var(--FONT);

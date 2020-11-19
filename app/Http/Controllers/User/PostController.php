@@ -8,7 +8,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 
 class PostController extends Controller
-{
+{   
     /**
      * 記事投稿画面
      */
@@ -77,14 +77,13 @@ class PostController extends Controller
             \Session::flash('err_msg', 'データがありません');
             return redirect(route('user.home.index'));
         }
-
         try {
             // 記事を削除する
             Post::destroy($id);
         } catch(\Throwable $e) {
             abort(500);
         }
-        
+
         \Session::flash('err_msg', '削除しました');
         return redirect(route('user.home.index'));
     }

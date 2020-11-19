@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class HomeController extends Controller
 {   
@@ -23,7 +24,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('user.home');
+    {   
+        $posts = Post::latest()->get();
+        return view('user.home', ['posts' => $posts]);
     }
 }

@@ -5,16 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                @if (session('err_msg'))
-                    <p class="card-header text-danger">
-                        {{ session('err_msg') }}
-                    </p>
-                @else
-                    <div class="card-header">Dashboard</div>
-                @endif
-
+                <div class="card-header">Dashboard</div>
+                
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('err_msg'))
+                        <p class="text-danger">
+                            {{ session('err_msg') }}
+                        </p>
+                    @elseif (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>

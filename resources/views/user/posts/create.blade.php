@@ -46,11 +46,11 @@
     </form>
     <script>
     function checkSubmit(){
-    if(window.confirm('投稿してよろしいですか？')){
-        return true;
-    } else {
-        return false;
-    }
+        if(window.confirm('投稿してよろしいですか？')){
+            return true;
+        } else {
+            return false;
+        }
     }
     </script>
 </body>

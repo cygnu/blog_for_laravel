@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="フルスタックエンジニアを目指す文系大学生の技術ブログ。経済学部 長浜光輝">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ asset('/css/app.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" integrity="sha384-9/D4ECZvKMVEJ9Bhr3ZnUAF+Ahlagp1cyPC7h5yDlZdXs4DQ/vRftzfd+2uFUuqS" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="contenant">
         <header class="header">
             <div class="header_nav">
                 <div class="header_nav_logo">
@@ -33,12 +33,14 @@
                 </div>
             </div>
         </header>
-        <main class="main">
-            @yield('content')
-        </main>
-        <sideber class="sideber">
-
-        </sideber>
+        <div class="container">
+            <main class="main">
+                @yield('content')
+            </main>
+            <sideber class="sideber">
+    
+            </sideber>
+        </div>
         <footer class="footer">
             <div class="footer_service">
                 <ul class="footer_service_items">

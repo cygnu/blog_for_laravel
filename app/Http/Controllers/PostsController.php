@@ -17,11 +17,6 @@ class PostsController extends Controller
         return view('posts.index',['posts' => $posts]);
     }
 
-    public function postsHome() {
-        $posts = Post::latest()->get();
-        return view('home',['posts' => $posts]);
-    }
-
     /**
      * 各記事画面
      */

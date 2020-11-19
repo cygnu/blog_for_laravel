@@ -30,7 +30,7 @@
                     <span class="form_error_content">{{ $errors->first('body') }}</span>
                 @endif
                 <textarea class="form_item_inputContent"
-                          name="content"
+                          name="body"
                 >{{ $post->body }}</textarea>
             </div>
             <div class="form_items_submitBtn">
@@ -43,11 +43,11 @@
     </form>
     <script>
     function checkSubmit(){
-    if(window.confirm('更新してよろしいですか？')){
-        return true;
-    } else {
-        return false;
-    }
+        if(window.confirm('更新してよろしいですか？')){
+            return true;
+        } else {
+            return false;
+        }
     }
     </script>
 </body>
