@@ -41,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:user');
+        $this->middleware('auth');
     }
 
     // Guardの認証方法を指定

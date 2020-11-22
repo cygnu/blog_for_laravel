@@ -56,7 +56,7 @@ class LoginController extends Controller
     // ログアウト処理
     public function logout(Request $request)
     {
-        Auth::guard('user')->logout();
+        Auth::guard('admin')->logout();
 
         return $this->loggedOut($request);
     }
@@ -64,6 +64,6 @@ class LoginController extends Controller
     // ログアウトした時のリダイレクト先
     public function loggedOut(Request $request)
     {
-        return redirect(route('user.login'));
+        return redirect(route('admin.login'));
     }
 }

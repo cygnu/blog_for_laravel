@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class PostController extends Controller
      * 記事投稿画面
      */
     public function create() {
-        return view('user.posts.create');
+        return view('admin.posts.create');
     }
 
     /**
@@ -33,7 +33,7 @@ class PostController extends Controller
         }
         
         \Session::flash('err_msg', '記事を投稿しました');
-        return redirect(route('user.home.index'));
+        return redirect(route('admin.home.index'));
     }
 
     /**
@@ -41,7 +41,7 @@ class PostController extends Controller
      */
     public function edit($id) {
         $post = Post::findOrFail($id);
-        return view('user.posts.edit', ['post' => $post]);
+        return view('admin.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -66,7 +66,7 @@ class PostController extends Controller
         }
 
         \Session::flash('err_msg', '記事を更新しました');
-        return redirect(route('user.home.index'));
+        return redirect(route('admin.home.index'));
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends Controller
     public function delete($id) {
         if (empty($id)) {
             \Session::flash('err_msg', 'データがありません');
-            return redirect(route('user.home.index'));
+            return redirect(route('admin.home.index'));
         }
         try {
             // 記事を削除する
@@ -84,7 +84,7 @@ class PostController extends Controller
             abort(500);
         }
 
-        \Session::flash('err_msg', '記事を削除しました');
-        return redirect(route('user.home.index'));
+        \Session::flash('err_msg', '削除しました');
+        return redirect(route('admin.home.index'));
     }
 }
