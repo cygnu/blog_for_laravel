@@ -26,9 +26,12 @@
                             <td><span>{{ $post->id }}</span></td>
                             <td><a href="/posts/{{ $post->id }}"><span>{{ $post->title }}</span></a></td>
                             <td><button class="btn btn-primary" type="button" onclick="location.href='/user/posts/edit/{{ $post->id }}'">編集</button></td>
-                            <form method="POST" action="{{ route('user.post.delete', $post->id) }}" onSubmit="return checkDelete()">
-                            @csrf
-                            <td><button class="btn btn-danger" type="submit" onclick=>消去</button></td>
+                            <td>
+                                <form method="POST" action="{{ route('user.post.delete', $post->id) }}" onSubmit="return checkDelete()">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit" onclick=>消去</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </table>
